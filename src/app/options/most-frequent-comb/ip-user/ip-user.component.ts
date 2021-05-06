@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { OptionsService } from "../../options.service";
-import { IIpUserResult } from "./ip-user-result";
+import { IUser } from '../../user';
 import { takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
 
@@ -10,13 +10,13 @@ import { Subject } from "rxjs";
   styleUrls: ["./ip-user.component.css"]
 })
 export class IpUserComponent implements OnInit, OnDestroy {
-  public result: IIpUserResult[];
+  public result: IUser[];
   private unsubscribe: Subject<void> = new Subject<void>();
 
   constructor(private optionsService: OptionsService) {}
 
   ngOnInit() {
-    this.getMostFrequentUsersIpAddressCombinations();
+    this.getAllStudents();
   }
 
   ngOnDestroy() {
@@ -24,12 +24,12 @@ export class IpUserComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-  private getMostFrequentUsersIpAddressCombinations():void {
+  private getAllStudents():void {
     this.optionsService
-      .getMostFrequentUsersIpAddressCombinations()
+      .getAllStudents()
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(result => {
-        this.result = <IIpUserResult[]>result;
+        this.result = <IUser[]>result;
       });
   }
 }

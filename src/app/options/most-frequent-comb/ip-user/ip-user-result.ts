@@ -1,5 +1,4 @@
 import {IUser} from '../../user'
-export interface IIpUserResult {
+export interface IStudentResult {
   user: IUser;
-  ipAddress: string;
 }

@@ -7,6 +7,9 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { CoreModule } from './core/core.module';
 import { OptionsModule } from './options/options.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,10 @@ import { OptionsModule } from './options/options.module';
     BrowserModule,
     OptionsModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

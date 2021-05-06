@@ -4,8 +4,8 @@ import { IpUserComponent } from './most-frequent-comb/ip-user/ip-user.component'
 import { DiscussionUsersComponent } from './other/discussion-users/discussion-users.component';
 
 const routes: Routes = [
-  {path:'ip-user', component:IpUserComponent },
-  {path:'discussion-users', component: DiscussionUsersComponent}
+  {path:'grades', component:IpUserComponent },
+  {path:'discussions', component: DiscussionUsersComponent}
 ];
 
 @NgModule({

@@ -6,7 +6,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
-  public title: string = "Exam Tracking";
+  public title = 'Exam Tracking';
+  public profText = 'Logged in as Prof.Exam';
 
   constructor() {}
 

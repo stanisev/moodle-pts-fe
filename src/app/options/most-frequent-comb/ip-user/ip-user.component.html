@@ -2,16 +2,16 @@
   <table class="table table-bordered text-center">
     <thead>
       <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>IP Address</th>
+        <th>Student Name</th>
+        <th>Course</th>
+        <th>Exam</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let resultRow of result">
-        <td>{{ resultRow.user.firstName }}</td>
-        <td>{{ resultRow.user.lastName }}</td>
-        <td>{{ resultRow.ipAddress }}</td>
+        <td>{{ resultRow.user.studentName }}</td>
+        <td>{{ resultRow.user.course }}</td>
+        <td>{{ resultRow.exam }}</td>
       </tr>
     </tbody>
   </table>

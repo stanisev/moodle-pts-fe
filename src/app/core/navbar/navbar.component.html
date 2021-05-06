@@ -1,6 +1,7 @@
 <div
   class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between"
 >
+
   <div>
     <a class="title" routerLink="/dashboard">
       <img
@@ -21,18 +22,13 @@
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Most Frequent Combinations
+        Grades
       </button>
       <div class="dropdown-menu dropdown-menu-right">
-        <button routerLink='/ip-user' class="dropdown-item" type="button">
-          IP Address - User
+        <button routerLink='/grades' class="dropdown-item" type="button">
+          Students
         </button>
-        <button class="dropdown-item" type="button">
-          Course Module - User
-        </button>
-        <button class="dropdown-item" type="button">
-          User(Enroller) - User(Enrolling)
-        </button>
+
       </div>
     </div>
     <div class="btn-group">
@@ -45,16 +41,14 @@
         Other
       </button>
       <div class="dropdown-menu dropdown-menu-right">
-        <button class="dropdown-item" type="button">
-            User IP Addresses
-        </button>
-        <button class="dropdown-item" type="button">
-            Deleted files
-        </button>
-        <button routerLink='/discussion-users' class="dropdown-item" type="button">
-            Most Common Users Participating In Discussions
+        <button routerLink='/discussions' class="dropdown-item" type="button">
+            Student Discussion
         </button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="text-right custom">
+  {{ profText }}
 </div>

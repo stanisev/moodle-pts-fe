@@ -3,6 +3,7 @@ import { IUser } from '../../user';
 import { OptionsService } from '../../options.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-discussion-users',
@@ -12,11 +13,12 @@ import { takeUntil } from 'rxjs/operators';
 export class DiscussionUsersComponent implements OnInit, OnDestroy {
   public users: IUser[];
   private unsubscribe: Subject<void> = new Subject<void>();
-  
-  constructor(private optionsService: OptionsService) { }
+
+  constructor(private optionsService: OptionsService,
+  private http: HttpClient) { }
 
   ngOnInit() {
-    this.getMostCommonDiscussonUsers();
+    this.getAllStudents();
   }
 
   ngOnDestroy(){
@@ -24,11 +26,15 @@ export class DiscussionUsersComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-  private getMostCommonDiscussonUsers(): void{
-    this.optionsService.getMostCommonDiscussonUsers()
+  private getAllStudents(): void{
+    this.optionsService.getAllStudents()
         .pipe(takeUntil(this.unsubscribe))
         .subscribe(users => {
           this.users = <IUser[]>users;
         })
+  }
+
+  onSubmit(data): void{
+  this.http.post('localhost:8080/save', data).subscribe((result)=>{console.warn(result)});
   }
 }

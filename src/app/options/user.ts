@@ -1,4 +1,5 @@
 export interface IUser {
-  firstName: string;
-  lastName: string;
+  studentName: string;
+  course: string;
+  exam: string;
 }
