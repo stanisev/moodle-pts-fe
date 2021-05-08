@@ -1,0 +1,27 @@
+<div class="container mt-3">
+  <h6>Filters:</h6>
+  <form #studentForm = "ngForm" (ngSubmit)="onSubmit(studentForm.value)">
+    <input type="text" name="date" placeholder="Enter date to search:" ngModel><br>
+    <button type="submit">Search</button>
+
+  </form>
+</div>
+
+<div class="container mt-3">
+
+  <h4>Upload file for date processing</h4>
+
+  <input type="file" (change)="onFileChange($event)" multiple="false" />
+
+  <p class="font-italic">(.xlsx, .rar, .zip, .7z) Size Limit: 5.00 MB</p>
+
+  <table class="table">
+    <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let cell of row">
+        {{cell}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

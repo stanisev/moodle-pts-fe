@@ -1,18 +1,30 @@
 <div class="container mt-3">
+  <h4>Find Grade by Student Id:</h4>
+  <form #studentForm = "ngForm" (ngSubmit)="findStudent(studentForm.value)">
+    <input id="studentId " type = "text" name = "studentId" placeholder = "Student Id:" ngModel>&nbsp;
+    <input type = "submit" value = "Find" class="btn btn-primary"><br/>
+  </form>
+  <h6>Grade: {{ grade }}</h6>
+</div>
+
+<div class="container mt-3">
+  <h4>Students</h4>
   <table class="table table-bordered text-center">
     <thead>
       <tr>
-        <th>Student Name</th>
-        <th>Course</th>
-        <th>Exam</th>
+        <th>Student Id</th>
+        <th>Result</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let resultRow of result">
-        <td>{{ resultRow.user.studentName }}</td>
-        <td>{{ resultRow.user.course }}</td>
-        <td>{{ resultRow.exam }}</td>
+      <tr *ngFor="let d of data">
+        <td>{{ d.id }}</td>
+        <td>{{ d.exam }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+
+
+

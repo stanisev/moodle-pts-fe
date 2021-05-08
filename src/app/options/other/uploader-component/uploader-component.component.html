@@ -1,0 +1,55 @@
+<!--
+<angular-file-uploader
+  [config]="afuConfig">
+</angular-file-uploader>
+
+<div class="container mt-3">
+  <table class="table table-bordered text-center">
+    <thead>
+    <tr>
+      <th>Time</th>
+      <th>Event Content</th>
+      <th>Component</th>
+      <th>Event Name</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td>{{ time }}</td>
+      <td>{{ eventContext }}</td>
+      <td>{{ component }}</td>
+      <td>{{ eventName }}</td>
+      <td>{{ description }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <a class="center" href="file://E:\FILEUPLOAD\Logs_Course A_StudentsActivities.xlsx"> Load More</a>
+</div>
+-->
+
+<div class="container mt-3">
+  <h4>Upload file for processing</h4>
+
+  <input type="file" (change)="onFileChange($event)" multiple="false" />
+
+  <p class="font-italic">(.xlsx, .rar, .zip, .7z) Size Limit: 5.00 MB</p>
+
+
+  <p class="custom-border">Average mark: {{ averageMarkOnButton }}</p>
+n
+
+  <br><br>
+  <h5>Analysis calculation:</h5>
+
+  <table class="table">
+    <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let cell of row">
+        {{cell}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

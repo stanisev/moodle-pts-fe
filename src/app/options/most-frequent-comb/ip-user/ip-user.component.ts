@@ -9,27 +9,29 @@ import { Subject } from "rxjs";
   templateUrl: "./ip-user.component.html",
   styleUrls: ["./ip-user.component.css"]
 })
-export class IpUserComponent implements OnInit, OnDestroy {
-  public result: IUser[];
-  private unsubscribe: Subject<void> = new Subject<void>();
+export class IpUserComponent implements OnInit {
+  public grade = '';
+  public data: IUser[];
 
-  constructor(private optionsService: OptionsService) {}
-
-  ngOnInit() {
-    this.getAllStudents();
+  constructor(private optionsService: OptionsService) {
   }
 
-  ngOnDestroy() {
-    this.unsubscribe.next();
-    this.unsubscribe.complete();
-  }
+   ngOnInit() {
+   this.optionsService.findAll().subscribe(result => {
+     this.data = result;
+   });
+   }
 
-  private getAllStudents():void {
-    this.optionsService
-      .getAllStudents()
-      .pipe(takeUntil(this.unsubscribe))
-      .subscribe(result => {
-        this.result = <IUser[]>result;
-      });
-  }
+   findStudent(id: any) {
+   const result = [];
+   for(let i in id) {
+   result.push([i, id[i]]);
+   }
+   console.log(result[0][1]);
+   this.optionsService.findById(result[0][1]).subscribe(result => {
+     this.grade = result;
+   });
+
+
+   }
 }

@@ -1,0 +1,9 @@
+.center {
+  text-align: center;
+}
+
+.custom-border{
+ border: 2px solid;
+ border-color: #008891;
+ width: 25%;
+}

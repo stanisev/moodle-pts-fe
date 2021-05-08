@@ -1,27 +1,19 @@
 <div class="container mt-3">
-  <table class="table table-bordered text-center">
-    <thead>
-      <tr>
-        <th>Student Name</th>
-        <th>Course</th>
-      </tr>
-    </thead>
+  <h4>File analysis calculation</h4>
+
+  <input type="file" (change)="onFileChange($event)" multiple="false" />
+
+  <p class="font-italic">(.xlsx, .rar, .zip, .7z) Size Limit: 5.00 MB</p>
+
+  <button class="btn btn-info" (click)="calculateAverage()">Calculate Frequency</button>&nbsp;
+  <button class="btn btn-info" (click)="calculateAverage()">Calculate Central Tendency</button>
+
+  <table class="table">
     <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.studentName }}</td>
-        <td>{{ user.course }}</td>
-      </tr>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let cell of row">
+        {{cell}}
+      </td>
+    </tr>
     </tbody>
   </table>
-  <div>
-    <form>
-      <input type="text" name="studentName" placeholder="Student Name"><br>
-      <input type="text" name="course" placeholder="Course" ><br>
-      <input type="text" name="exam" placeholder="Exam" ><br>
-      <button type="submit">Submit Student</button>
-
-    </form>
-  </div>
-
-</div>
-
